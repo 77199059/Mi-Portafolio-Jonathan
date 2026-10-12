@@ -19,7 +19,7 @@ stages:
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
-        version: '10.0.401'#version de la maquina
+        version: '10.0.401' #version de la maquina
 
     - task: DotNetCoreCLI@2
       inputs:

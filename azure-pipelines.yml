@@ -36,9 +36,14 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    # 1. Agregamos la tarea para descargar el artefacto en este job
+    - download: current
+      artifact: drop
+
     - task: AzureWebApp@1
       inputs:
         azureSubscription: 'ConexionAzure'
         appType: 'webApp'
         appName: 'devop-Mi-Portafolio-Jonathan'
-        package: '$(Pipeline.Workspace)/drop'
+        # 2. Apuntamos al contenido descargado dentro del workspace
+        package: '$(Pipeline.Workspace)/drop/**/*'

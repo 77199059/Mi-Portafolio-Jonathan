@@ -46,7 +46,7 @@ stages:
         appType: 'webApp'
         appName: 'devop-Mi-Portafolio-Jonathan'
         # 2. Apuntamos al contenido descargado dentro del workspace
-        package: '$(Pipeline.Workspace)/drop.zip'
+        package: '$(Pipeline.Workspace)/drop'
 
 
 

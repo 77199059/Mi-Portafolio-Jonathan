@@ -41,4 +41,4 @@ stages:
         azureSubscription: 'ConexionAzure'
         appType: 'webApp'
         appName: 'devop-Mi-Portafolio-Jonathan'
-        package: '$(Pipeline.Workspace)/drop/**/*.zip'
+        package: '$(Pipeline.Workspace)/drop'

@@ -5,3 +5,5 @@ Mi portafolio contiene todas las expereiencia de ingeneria de Software, que teng
 
 ## Objetivo
 Adquirir mas conocimiento de desarrollo y ganar muchas experiencia y ayudar a los demas con mis conocimientos, para llegar hacer un buen profecional en la ingeneria de Sotfware.
+
+## Jonathan Nicoya

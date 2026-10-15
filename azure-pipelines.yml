@@ -47,7 +47,7 @@ stages:
         downloadPath: '$(System.ArtifactsDirectory)'
  
     - task: AzureWebApp@1
-      displayName: 'Desplegar portafolio'
+      displayName: 'portafolioPersonal'   #Desplegar portafolio
       inputs:
         azureSubscription: 'ConexionAzure'
         appType: 'webApp'

@@ -1,5 +1,5 @@
 trigger:
-  - master # Se dispara automáticamente al hacer push a la rama main
+  - master # Se dispara automáticamente al hacer push a la rama master
  
 pool:
   vmImage: 'windows-2022'
@@ -14,10 +14,20 @@ stages:
   jobs:
   - job: BuildJob
     steps:
+    - task: CopyFiles@2
+      displayName: 'Preparar archivos del portafolio'
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: |
+          index.html
+          portafolio.css
+          aseet/**
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/site'
+
     - task: ArchiveFiles@2
       displayName: 'Empaquetar portafolio HTML y CSS'
       inputs:
-        rootFolderOrFile: '$(Build.SourcesDirectory)'
+        rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/site'
         includeRootFolder: false
         archiveType: 'zip'
         archiveFile: '$(Build.ArtifactStagingDirectory)/portafolio.zip'
@@ -53,3 +63,4 @@ stages:
         appType: 'webApp'
         appName: 'devop-Mi-Portafolio-Jonathan'
         package: '$(System.ArtifactsDirectory)/drop/portafolio.zip'
+        deploymentMethod: 'runFromPackage'

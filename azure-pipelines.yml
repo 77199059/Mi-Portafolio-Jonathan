@@ -57,10 +57,10 @@ stages:
         downloadPath: '$(System.ArtifactsDirectory)'
  
     - task: AzureWebApp@1
-      displayName: 'Portafolio'   #Desplegar portafolio
+      displayName: 'Desplegar portafolio'
       inputs:
         azureSubscription: 'ConexionAzure'
-        appType: 'webApp'
+        appType: 'webAppLinux'
         appName: 'devop-Mi-Portafolio-Jonathan'
         package: '$(System.ArtifactsDirectory)/drop/portafolio.zip'
-        deploymentMethod: 'runFromPackage'
+        deploymentMethod: 'zipDeploy'

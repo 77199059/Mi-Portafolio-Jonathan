@@ -1,46 +1,32 @@
-name: Hola este es mi portafolio
- 
-on: 
 
-    workflow_dispatch: #ejecucion normla
+name: Hola, este es mi portafolio
 
-    push: 
+on:
+  workflow_dispatch:
 
-       branches: 
+  push:
+    branches:
+      - master
+    paths:
+      - 'PortafolioJMEC/**'
+      - '.github/workflows/master.yml'
 
-            - master
+  pull_request:
+    branches:
+      - master
 
-            paths: 
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
 
-            - 'PortafolioJMEC/**'
+    steps:
+      - name: Mostrar información del portafolio
+        run: echo "Hola, este es mi portafolio, 3ro ISI"
 
-            - '.github/workflows/mundo-mundo'
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
 
-            pull_request:
-
-            branches: 
-
-            - master
- 
-jobs: 
-
-   saludar: 
-
-       runs-on: ubuntu-latest
-
-       steps:
-
-       - name: Muestra el portafolio
-
-         run: echo "Portafolio, 3ro ISI"
-
-       - name: Checkout
-
-         uses: actions/checkout@v7.0.1
- 
-       - name: Listar los archivo del repositorio
-
-         run: 
-
-           echo "El repositorio${{github.repository}} contiene los siguientes archivos"
- 
+      - name: Listar los archivos del repositorio
+        run: |
+          echo "El repositorio ${{ github.repository }} contiene los siguientes archivos:"
+          ls -la
